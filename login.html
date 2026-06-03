@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tourist Medicare Assist - Login</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<form action="location-permission.html"></form>
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#0f766e,#14b8a6,#38bdf8,#0891b2);
+background-size:400% 400%;
+animation:bgMove 12s ease infinite;
+position:relative;
+}
+
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* Floating Medical Icons */
+
+.icon{
+position:absolute;
+font-size:40px;
+opacity:0.2;
+animation:float 6s ease-in-out infinite;
+}
+
+.icon:nth-child(1){top:10%;left:8%;}
+.icon:nth-child(2){top:15%;right:10%;}
+.icon:nth-child(3){bottom:15%;left:12%;}
+.icon:nth-child(4){bottom:10%;right:8%;}
+
+@keyframes float{
+0%,100%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-20px);
+}
+}
+
+/* Doctor */
+
+.doctor{
+position:absolute;
+left:70px;
+bottom:50px;
+font-size:120px;
+animation:doctorMove 3s ease-in-out infinite;
+}
+
+@keyframes doctorMove{
+50%{
+transform:translateY(-10px);
+}
+}
+
+/* Login Card */
+
+.login-card{
+width:420px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(15px);
+padding:40px;
+border-radius:30px;
+box-shadow:0 8px 30px rgba(0,0,0,0.2);
+text-align:center;
+color:white;
+animation:slideIn 1.2s ease;
+}
+
+@keyframes slideIn{
+from{
+opacity:0;
+transform:translateY(60px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.logo{
+font-size:2rem;
+font-weight:700;
+margin-bottom:10px;
+}
+
+.subtitle{
+font-size:0.95rem;
+margin-bottom:25px;
+opacity:0.9;
+}
+
+.input-group{
+margin-bottom:18px;
+}
+
+input{
+width:100%;
+padding:14px;
+border:none;
+outline:none;
+border-radius:12px;
+font-size:15px;
+background:rgba(255,255,255,0.2);
+color:white;
+}
+
+input::placeholder{
+color:#e5e7eb;
+}
+
+input:focus{
+box-shadow:0 0 15px rgba(255,255,255,0.8);
+}
+
+/* Login Button */
+
+.login-btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:30px;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+color:white;
+background:linear-gradient(90deg,#2563eb,#14b8a6,#2563eb);
+background-size:300%;
+animation:buttonMove 5s linear infinite;
+transition:0.3s;
+}
+
+@keyframes buttonMove{
+0%{
+background-position:0%;
+}
+100%{
+background-position:300%;
+}
+}
+
+.login-btn:hover{
+transform:translateY(-3px);
+}
+
+/* Links */
+
+.links{
+margin-top:15px;
+display:flex;
+justify-content:space-between;
+font-size:13px;
+}
+
+.links a{
+color:white;
+text-decoration:none;
+}
+
+.links a:hover{
+text-decoration:underline;
+}
+
+/* Heartbeat Line */
+
+.ecg{
+position:absolute;
+bottom:0;
+width:100%;
+height:100px;
+opacity:0.3;
+}
+
+.ecg svg{
+width:100%;
+height:100%;
+}
+
+.ecg path{
+fill:none;
+stroke:white;
+stroke-width:4;
+stroke-dasharray:2000;
+stroke-dashoffset:2000;
+animation:heartbeat 6s linear infinite;
+}
+
+@keyframes heartbeat{
+to{
+stroke-dashoffset:0;
+}
+}
+
+@media(max-width:768px){
+
+.login-card{
+width:90%;
+}
+
+.doctor{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Floating Icons -->
+<div class="icon">🏥</div>
+<div class="icon">💊</div>
+<div class="icon">🩺</div>
+<div class="icon">❤️</div>
+
+<!-- Doctor -->
+<div class="doctor">👩‍⚕️</div>
+
+<!-- Login Card -->
+<div class="login-card">
+
+<h1 class="logo">Tourist Medicare Assist</h1>
+
+<p class="subtitle">
+Access healthcare support anywhere in the world
+</p>
+
+<form action="location-permission.html">
+
+<div class="input-group">
+<input type="email" placeholder="Email Address" required>
+</div>
+
+<div class="input-group">
+<input type="password" placeholder="Password" required>
+</div>
+
+<button class="login-btn" type="submit">
+Login
+</button>
+
+<div class="links">
+<a href="#" onclick="forgotPassword()">
+    Forgot Password?
+</a>
+<a href="#">Register</a>
+</div>
+
+</form>
+
+</div>
+
+<!-- ECG Animation -->
+<div class="ecg">
+<svg viewBox="0 0 1000 100">
+<path d="M0 50 L120 50 L150 15 L190 85 L230 50 L400 50 L450 10 L500 90 L550 50 L1000 50"/>
+</svg>
+</div>
+<script>
+
+function forgotPassword(){
+
+alert(
+"🔐 Password Recovery\n\n" +
+"For password assistance, please contact:\n\n" +
+"📧 support@medtripassist.com\n\n" +
+"📞 +91 9876543210\n\n" +
+"Our support team will help you recover your account."
+);
+
+}
+
+</script>
+
+</body>
+</html>

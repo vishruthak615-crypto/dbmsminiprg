@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard | Tourist Medicare Assist</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#0f172a;
+color:white;
+min-height:100vh;
+overflow-x:hidden;
+}
+
+/* Navbar */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(10px);
+}
+
+.logo{
+font-size:1.5rem;
+font-weight:700;
+}
+
+.user{
+font-size:1.8rem;
+}
+
+/* Rotating Globe */
+
+.globe{
+position:fixed;
+right:30px;
+top:100px;
+font-size:90px;
+opacity:.08;
+animation:rotate 18s linear infinite;
+}
+
+@keyframes rotate{
+100%{
+transform:rotate(360deg);
+}
+}
+
+/* Header */
+
+.header{
+padding:40px;
+}
+
+.header h1{
+font-size:2.2rem;
+margin-bottom:10px;
+}
+
+.header p{
+opacity:.8;
+}
+
+/* Stats */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+padding:0 40px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(12px);
+padding:25px;
+border-radius:20px;
+transition:.3s;
+animation:fadeUp 1s ease;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h2{
+font-size:2rem;
+margin-bottom:10px;
+color:#22c55e;
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* Main Grid */
+
+.grid{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:25px;
+padding:40px;
+}
+
+.panel{
+background:rgba(255,255,255,.05);
+padding:25px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+}
+
+/* Chart Placeholder */
+
+.chart{
+height:250px;
+display:flex;
+align-items:flex-end;
+gap:15px;
+margin-top:20px;
+}
+
+.bar{
+flex:1;
+background:linear-gradient(to top,#14b8a6,#22c55e);
+border-radius:10px 10px 0 0;
+animation:grow 1.5s ease;
+}
+
+.bar1{height:50%;}
+.bar2{height:80%;}
+.bar3{height:65%;}
+.bar4{height:95%;}
+.bar5{height:70%;}
+
+@keyframes grow{
+from{
+height:0;
+}
+}
+
+/* Timeline */
+
+.timeline-item{
+padding:15px 0;
+border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+.timeline-item:last-child{
+border:none;
+}
+
+.status{
+color:#22c55e;
+font-size:.9rem;
+}
+
+/* Progress Rings */
+
+.ring-container{
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
+.ring{
+width:120px;
+height:120px;
+border-radius:50%;
+background:
+conic-gradient(#22c55e 0 270deg,
+rgba(255,255,255,.1) 270deg);
+display:flex;
+justify-content:center;
+align-items:center;
+font-weight:700;
+font-size:1.2rem;
+}
+
+.footer{
+text-align:center;
+padding:20px;
+opacity:.6;
+}
+
+@media(max-width:900px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.stats{
+padding:20px;
+}
+
+.header{
+padding:20px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="globe">🌐</div>
+
+<nav class="navbar">
+<div class="logo">📊 Healthcare Dashboard</div>
+<div class="user">👤</div>
+</nav>
+
+<section class="header">
+<h1>Traveler Health Analytics</h1>
+<p>Monitor your healthcare support activity and travel safety status.</p>
+</section>
+
+<section class="stats">
+
+<div class="card">
+<h2 id="hospitalCount">0</h2>
+<p>Hospitals Available</p>
+</div>
+
+<div class="card">
+<h2 id="pharmacyCount">0</h2>
+<p>Nearby Pharmacies</p>
+</div>
+
+<div class="card">
+<h2 id="countryCount">0</h2>
+<p>Countries Supported</p>
+</div>
+
+<div class="card">
+<h2 id="helpCount">0</h2>
+<p>Travelers Assisted</p>
+</div>
+
+</section>
+
+<section class="grid">
+
+<div class="panel">
+
+<h3>Healthcare Activity</h3>
+
+<div class="chart">
+<div class="bar bar1"></div>
+<div class="bar bar2"></div>
+<div class="bar bar3"></div>
+<div class="bar bar4"></div>
+<div class="bar bar5"></div>
+</div>
+
+</div>
+
+<div class="panel">
+
+<h3>Recent Activity</h3>
+
+<div class="timeline-item">
+Hospital Search Completed
+<div class="status">✓ Success</div>
+</div>
+
+<div class="timeline-item">
+Location Access Enabled
+<div class="status">✓ Active</div>
+</div>
+
+<div class="timeline-item">
+Profile Verified
+<div class="status">✓ Completed</div>
+</div>
+
+<div class="timeline-item">
+Emergency Services Ready
+<div class="status">✓ Available</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="panel" style="margin:0 40px 40px;">
+
+<h3>Health Coverage Overview</h3>
+
+<div class="ring-container">
+
+<div class="ring">75%</div>
+
+<div class="ring"
+style="background:
+conic-gradient(#3b82f6 0 320deg,
+rgba(255,255,255,.1) 320deg);">
+89%
+</div>
+
+<div class="ring"
+style="background:
+conic-gradient(#f59e0b 0 240deg,
+rgba(255,255,255,.1) 240deg);">
+67%
+</div>
+
+</div>
+
+</section>
+
+<div class="footer">
+Tourist Medicare Assist Dashboard © 2026
+</div>
+
+<script>
+
+function animateCounter(id,target){
+
+let count=0;
+
+let interval=setInterval(()=>{
+
+count += Math.ceil(target/100);
+
+if(count>=target){
+count=target;
+clearInterval(interval);
+}
+
+document.getElementById(id).innerText=count+"+";
+
+},20);
+
+}
+
+animateCounter("hospitalCount",500);
+animateCounter("pharmacyCount",300);
+animateCounter("countryCount",50);
+animateCounter("helpCount",10000);
+
+</script>
+<div class="card">
+<h2>12</h2>
+<p>Hospital Visits</p>
+</div>
+
+<div class="card">
+<h2>3</h2>
+<p>SOS Requests</p>
+</div>
+
+<div class="card">
+<h2>18</h2>
+<p>Health Records</p>
+</div>
+<div class="panel">
+
+<h3>🏥 Medical History</h3>
+
+<p>15 Apr 2026 - Apollo Hospital</p>
+
+<p>20 Mar 2026 - General Checkup</p>
+
+<p>10 Jan 2026 - Emergency Visit</p>
+
+</div>
+
+</body>
+</html>

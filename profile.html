@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Profile | Tourist Medicare Assist</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+min-height:100vh;
+background:linear-gradient(135deg,#4f46e5,#7c3aed,#06b6d4);
+overflow-x:hidden;
+padding:30px;
+}
+
+/* Floating Icons */
+
+.icon{
+position:fixed;
+font-size:30px;
+opacity:.2;
+animation:float 10s infinite linear;
+}
+
+.icon:nth-child(1){
+top:10%;
+left:10%;
+}
+
+.icon:nth-child(2){
+top:20%;
+right:10%;
+animation-duration:12s;
+}
+
+.icon:nth-child(3){
+bottom:20%;
+left:15%;
+animation-duration:15s;
+}
+
+.icon:nth-child(4){
+bottom:15%;
+right:15%;
+animation-duration:18s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-25px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* Container */
+
+.container{
+max-width:1200px;
+margin:auto;
+}
+
+/* Header */
+
+.profile-header{
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(20px);
+border-radius:30px;
+padding:40px;
+text-align:center;
+color:white;
+margin-bottom:30px;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+}
+
+/* Avatar */
+
+.avatar{
+width:140px;
+height:140px;
+margin:auto;
+border-radius:50%;
+background:white;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:70px;
+color:#4f46e5;
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+50%{
+transform:scale(1.08);
+}
+
+}
+
+.profile-header h1{
+margin-top:20px;
+font-size:2.5rem;
+}
+
+.profile-header p{
+opacity:.8;
+}
+
+/* Grid */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+}
+
+/* Cards */
+
+.card{
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(15px);
+border-radius:25px;
+padding:25px;
+color:white;
+transition:.4s;
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h2{
+margin-bottom:15px;
+font-size:1.3rem;
+}
+
+.card p{
+margin:10px 0;
+opacity:.95;
+}
+
+/* Buttons */
+
+.btn{
+display:inline-block;
+margin-top:15px;
+padding:12px 25px;
+background:white;
+color:#4f46e5;
+text-decoration:none;
+border-radius:12px;
+font-weight:600;
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+/* Logout */
+
+.logout{
+text-align:center;
+margin-top:40px;
+}
+
+.logout a{
+background:#ef4444;
+color:white;
+padding:15px 30px;
+text-decoration:none;
+border-radius:15px;
+font-weight:600;
+}
+
+.logout a:hover{
+opacity:.9;
+}
+
+@media(max-width:768px){
+
+.profile-header h1{
+font-size:2rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="icon">🏥</div>
+<div class="icon">🚑</div>
+<div class="icon">💊</div>
+<div class="icon">❤️</div>
+
+<div class="container">
+
+<div class="profile-header">
+
+<div class="avatar">
+👤
+</div>
+
+<h1 id="userName">Traveler Profile</h1>
+
+<p>Tourist Medicare Assist Member</p>
+
+</div>
+
+<div class="grid">
+
+<!-- Personal Details -->
+
+<div class="card">
+
+<h2>👤 Personal Details</h2>
+
+<p><strong>Name:</strong> <span id="name">User</span></p>
+
+<p><strong>Blood Group:</strong> <span id="blood">O+</span></p>
+
+<p><strong>Emergency Contact:</strong> <span id="contact">9876543210</span></p>
+
+</div>
+
+<!-- Medical Passport -->
+
+<div class="card">
+
+<h2>📋 Medical Passport</h2>
+
+<p>Allergies: None</p>
+
+<p>Medical Conditions: None</p>
+
+<p>Current Medications: None</p>
+
+</div>
+
+<!-- Records -->
+
+<div class="card">
+
+<h2>🏥 My Records</h2>
+
+<p>15 Apr 2026 - Apollo Hospital Visit</p>
+
+<p>20 Mar 2026 - General Checkup</p>
+
+<p>10 Jan 2026 - Emergency Consultation</p>
+
+</div>
+
+<!-- SOS History -->
+
+<div class="card">
+
+<h2>🚨 SOS History</h2>
+
+<p>Goa Beach - Emergency Alert Sent</p>
+
+<p>Bangalore City - Ambulance Requested</p>
+
+</div>
+
+<!-- Help Centre -->
+
+<div class="card">
+
+<h2>❓ Help Centre</h2>
+
+<p>📞 Emergency Support: 108</p>
+
+<p>📧 support@medtripassist.com</p>
+
+<a href="#" class="btn">Contact Support</a>
+
+</div>
+
+<!-- About -->
+
+<div class="card">
+
+<h2>ℹ️ About App</h2>
+
+<p>
+Tourist Medicare Assist helps travelers locate hospitals,
+access emergency healthcare services, translate medical
+information and receive SOS assistance.
+</p>
+
+</div>
+
+</div>
+
+<div class="logout">
+
+<a href="login.html">
+🚪 Logout
+</a>
+
+</div>
+
+</div>
+
+<script>
+
+/* Fetch saved data from Profile Setup */
+
+let name = localStorage.getItem("name");
+let blood = localStorage.getItem("blood");
+let contact = localStorage.getItem("contact");
+
+if(name){
+document.getElementById("name").innerHTML = name;
+document.getElementById("userName").innerHTML = name;
+}
+
+if(blood){
+document.getElementById("blood").innerHTML = blood;
+}
+
+if(contact){
+document.getElementById("contact").innerHTML = contact;
+}
+
+</script>
+
+</body>
+</html>

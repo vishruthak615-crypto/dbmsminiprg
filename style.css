@@ -1,0 +1,396 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* GLASS CARD */
+.card {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  color: #000;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* =====================
+🔴 WELCOME PAGE
+===================== */
+.welcome-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+}
+
+.title {
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.enter-btn {
+  margin-top: 20px;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: none;
+  background: white;
+  color: #ff416c;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* =====================
+🟢 HOME PAGE
+===================== */
+.home-page {
+  background: linear-gradient(135deg, #56ab2f, #a8e063);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 420px;
+  margin: auto;
+  padding: 20px;
+}
+
+.sos-btn {
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  color: white;
+  border: none;
+  font-size: 20px;
+  border-radius: 15px;
+  margin-top: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255,0,0,0.4);
+}
+
+/* =====================
+🔵 SOS PAGE
+===================== */
+.sos-page {
+  background: linear-gradient(135deg, #2193b0, #6dd5ed);
+  min-height: 100vh;
+}
+
+/* HOSPITAL CARD */
+.hospital {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hospital:hover {
+  transform: scale(1.03);
+}
+
+/* ICON BUTTONS */
+.icon-btn {
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* EMERGENCY BUTTONS */
+.emergency-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 10px;
+  background: #ff3b3b;
+  color: white;
+  font-size: 16px;
+}
+
+/* BACK BUTTON */
+.back-btn {
+  margin-top: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: black;
+  color: white;
+  width: 100%;
+}
+
+/* NETWORK */
+#networkStatus {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* HIDDEN */
+.hidden {
+  display: none;
+}
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:16px 45px;
+    border-radius:50px;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+}
+.btn{
+    display:block;
+    text-decoration:none;
+    text-align:center;
+    width:100%;
+    padding:15px;
+    background:#0F766E;
+    color:white;
+    border-radius:12px;
+    font-size:1rem;
+    font-weight:600;
+}
+.btn{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+}
+body{
+overflow:hidden;
+background:linear-gradient(
+135deg,
+#081c24,
+#0a2342,
+#134074
+);
+
+background-size:400% 400%;
+
+animation:bgMove 12s infinite;
+}
+
+@keyframes bgMove{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+.globe{
+
+font-size:90px;
+
+text-align:center;
+
+animation:
+spin 12s linear infinite,
+float 4s ease-in-out infinite;
+}
+
+@keyframes spin{
+
+from{
+transform:rotate(0deg);
+}
+
+to{
+transform:rotate(360deg);
+}
+
+}
+
+@keyframes float{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-20px);
+}
+
+}
+
+.title{
+
+font-size:58px;
+
+font-weight:700;
+
+text-align:center;
+
+background:linear-gradient(
+90deg,
+white,
+#5BC0BE,
+white
+);
+
+background-size:300%;
+
+background-clip: text;
+-webkit-background-clip: text;
+
+color:transparent;
+
+animation:
+shine 4s infinite,
+typing 3s steps(30);
+}
+
+@keyframes shine{
+
+0%{
+background-position:-100%;
+}
+
+100%{
+background-position:200%;
+}
+
+}
+
+.subtitle{
+
+text-align:center;
+
+font-size:18px;
+
+opacity:0;
+
+animation:fadeIn 2s forwards;
+animation-delay:2s;
+}
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+.enter-btn{
+
+display:inline-block;
+
+padding:18px 40px;
+
+border-radius:50px;
+
+margin-top:40px;
+
+text-decoration:none;
+
+color:white;
+
+font-size:18px;
+
+background:linear-gradient(
+135deg,
+#5BC0BE,
+#3A86FF
+);
+
+animation:
+popUp 1.5s ease,
+glow 3s infinite;
+}
+
+@keyframes popUp{
+
+0%{
+opacity:0;
+transform:scale(.4);
+}
+
+70%{
+transform:scale(1.1);
+}
+
+100%{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+@keyframes glow{
+
+0%,100%{
+box-shadow:0 0 20px #3A86FF;
+}
+
+50%{
+box-shadow:0 0 50px #5BC0BE;
+}
+
+}
+nav{
+display:flex;
+gap:20px;
+padding:20px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:600;
+}
+.floating-sos{
+position:fixed;
+bottom:30px;
+right:30px;
+width:80px;
+height:80px;
+border-radius:50%;
+background:red;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:35px;
+text-decoration:none;
+animation:pulse 1.5s infinite;
+}
+.about-section{
+    margin-top:80px;
+    padding:40px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    color:white;
+    text-align:center;
+}
+
+.about-section h2{
+    margin-bottom:20px;
+}
+
+.about-section p{
+    line-height:1.8;
+}

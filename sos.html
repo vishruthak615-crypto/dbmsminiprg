@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Emergency SOS | Tourist Medicare Assist</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+min-height:100vh;
+background:linear-gradient(135deg,#dc2626,#ef4444,#f87171);
+padding:20px;
+overflow-x:hidden;
+}
+
+/* Floating Icons */
+
+.icon{
+position:fixed;
+font-size:35px;
+opacity:.15;
+animation:float 6s infinite;
+}
+
+.icon:nth-child(1){top:10%;left:10%;}
+.icon:nth-child(2){top:20%;right:10%;}
+.icon:nth-child(3){bottom:15%;left:12%;}
+.icon:nth-child(4){bottom:10%;right:10%;}
+
+@keyframes float{
+50%{
+transform:translateY(-20px);
+}
+}
+
+/* Header */
+
+.header{
+text-align:center;
+color:white;
+margin-top:20px;
+}
+
+.header h1{
+font-size:3rem;
+}
+
+.header p{
+margin-top:10px;
+}
+
+/* SOS Button */
+
+.sos-container{
+display:flex;
+justify-content:center;
+margin:40px 0;
+}
+
+.sos-btn{
+width:220px;
+height:220px;
+border-radius:50%;
+border:none;
+background:white;
+color:#dc2626;
+font-size:32px;
+font-weight:700;
+cursor:pointer;
+animation:pulse 1.5s infinite;
+box-shadow:0 0 40px rgba(255,255,255,.6);
+}
+
+@keyframes pulse{
+
+50%{
+transform:scale(1.08);
+}
+
+}
+
+/* Cards */
+
+.card{
+background:rgba(255,255,255,.95);
+padding:20px;
+border-radius:20px;
+margin-bottom:20px;
+box-shadow:0 10px 20px rgba(0,0,0,.15);
+display:none;
+}
+
+.card h2{
+color:#dc2626;
+margin-bottom:15px;
+}
+
+.status{
+font-weight:600;
+margin-top:8px;
+}
+
+.back-btn{
+display:inline-block;
+background:white;
+color:#dc2626;
+text-decoration:none;
+padding:10px 20px;
+border-radius:10px;
+font-weight:600;
+margin-bottom:20px;
+}
+
+.location-loader{
+font-size:18px;
+font-weight:600;
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+50%{
+opacity:.5;
+}
+}
+
+.footer{
+text-align:center;
+color:white;
+margin-top:25px;
+font-weight:600;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="icon">🚨</div>
+<div class="icon">🚑</div>
+<div class="icon">🏥</div>
+<div class="icon">❤️</div>
+
+<a href="home.html" class="back-btn">← Home</a>
+
+<div class="header">
+<h1>🚨 Emergency SOS</h1>
+<p>Immediate Medical Assistance for Travelers</p>
+</div>
+
+<div class="sos-container">
+<button class="sos-btn" onclick="activateSOS()">
+SOS
+</button>
+</div>
+
+<!-- Emergency Status -->
+
+<div class="card" id="statusCard">
+
+<h2>🚨 Emergency Status</h2>
+
+<p id="sosStatus">Waiting...</p>
+
+</div>
+
+<!-- Network -->
+
+<div class="card" id="networkCard">
+
+<h2>📶 Network Status</h2>
+
+<p id="networkStatus"></p>
+
+</div>
+
+<!-- Location -->
+
+<div class="card" id="locationCard">
+
+<h2>📍 Location Tracking</h2>
+
+<p id="locationText" class="location-loader">
+Fetching Location...
+</p>
+
+</div>
+
+<!-- Hospital -->
+
+<div class="card" id="hospitalCard">
+
+<h2>🏥 Nearby Hospital</h2>
+
+<p><strong>Hospital:</strong> Apollo Hospital</p>
+
+<p><strong>Doctor:</strong> Dr. Rajesh Kumar</p>
+
+<p><strong>Contact:</strong> +91 9876543210</p>
+
+<p><strong>Distance:</strong> 1.2 km</p>
+
+<p><strong>Waiting Time:</strong> 15 Minutes</p>
+
+<p><strong>Estimated Cost:</strong> ₹500 - ₹1000</p>
+
+</div>
+
+<!-- Offline Hospital -->
+
+<div class="card" id="offlineCard">
+
+<h2>📍 Last Tracked Hospital</h2>
+
+<p><strong>Hospital:</strong> City Medical Center</p>
+
+<p><strong>Doctor:</strong> Dr. Arjun Rao</p>
+
+<p><strong>Contact:</strong> +91 9123456780</p>
+
+<p><strong>Status:</strong> Last Saved Emergency Location</p>
+
+</div>
+
+<!-- Ambulance -->
+
+<div class="card" id="ambulanceCard">
+
+<h2>🚑 Ambulance Status</h2>
+
+<p>Nearest Ambulance Notified</p>
+
+<p>ETA: 8 Minutes</p>
+
+</div>
+
+<!-- Contact -->
+
+<div class="card" id="contactCard">
+
+<h2>📞 Emergency Contact Alert</h2>
+
+<p>Emergency Contact Successfully Notified</p>
+
+</div>
+
+<div class="footer">
+Tourist Medicare Assist • Emergency Response System
+</div>
+
+<script>
+
+function activateSOS(){
+
+document.getElementById("statusCard").style.display="block";
+document.getElementById("networkCard").style.display="block";
+document.getElementById("locationCard").style.display="block";
+document.getElementById("ambulanceCard").style.display="block";
+document.getElementById("contactCard").style.display="block";
+
+document.getElementById("sosStatus").innerHTML=
+"🚨 SOS ACTIVATED SUCCESSFULLY";
+
+if(navigator.onLine){
+
+document.getElementById("networkStatus").innerHTML=
+"🟢 ONLINE MODE";
+
+document.getElementById("hospitalCard").style.display="block";
+
+}else{
+
+document.getElementById("networkStatus").innerHTML=
+"🔴 OFFLINE MODE";
+
+document.getElementById("offlineCard").style.display="block";
+
+}
+
+if(navigator.geolocation){
+
+navigator.geolocation.getCurrentPosition(
+
+function(position){
+
+let lat=position.coords.latitude.toFixed(4);
+let lon=position.coords.longitude.toFixed(4);
+
+document.getElementById("locationText").innerHTML=
+
+"Latitude: "+lat+
+"<br>Longitude: "+lon+
+"<br><br>📍 Location Captured Successfully";
+
+},
+
+function(){
+
+document.getElementById("locationText").innerHTML=
+
+"Unable to fetch location. Using last saved location.";
+
+}
+
+);
+
+}else{
+
+document.getElementById("locationText").innerHTML=
+
+"Geolocation not supported.";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Profile Setup | Tourist Medicare Assist</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<form action="home.html"></form>
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#2563eb,#38bdf8,#0ea5e9);
+overflow:hidden;
+position:relative;
+}
+
+/* Floating Travel Icons */
+
+.icon{
+position:absolute;
+font-size:50px;
+opacity:.25;
+animation:float 6s ease-in-out infinite;
+}
+
+.icon:nth-child(1){
+top:10%;
+left:10%;
+}
+
+.icon:nth-child(2){
+top:15%;
+right:12%;
+}
+
+.icon:nth-child(3){
+bottom:15%;
+left:15%;
+}
+
+.icon:nth-child(4){
+bottom:10%;
+right:10%;
+}
+
+@keyframes float{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-20px);
+}
+}
+
+/* Passport Card */
+
+.passport-card{
+width:500px;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(15px);
+padding:40px;
+border-radius:30px;
+box-shadow:0 10px 30px rgba(0,0,0,.2);
+text-align:center;
+color:white;
+animation:slideUp 1s ease;
+}
+
+@keyframes slideUp{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* Avatar */
+
+.avatar{
+width:120px;
+height:120px;
+border-radius:50%;
+background:rgba(255,255,255,.2);
+margin:0 auto 20px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:60px;
+cursor:pointer;
+transition:.3s;
+animation:bounce 3s infinite;
+}
+
+.avatar:hover{
+transform:scale(1.05);
+}
+
+@keyframes bounce{
+50%{
+transform:translateY(-8px);
+}
+}
+
+h1{
+margin-bottom:10px;
+}
+
+.subtitle{
+margin-bottom:25px;
+opacity:.9;
+}
+
+/* Progress Bar */
+
+.progress{
+height:12px;
+background:rgba(255,255,255,.2);
+border-radius:20px;
+overflow:hidden;
+margin-bottom:25px;
+}
+
+.progress-fill{
+height:100%;
+width:75%;
+background:#22c55e;
+animation:fillBar 2s ease;
+}
+
+@keyframes fillBar{
+from{
+width:0;
+}
+to{
+width:75%;
+}
+}
+
+/* Form */
+
+input,
+select{
+width:100%;
+padding:14px;
+margin-bottom:15px;
+border:none;
+border-radius:12px;
+outline:none;
+font-size:15px;
+background:rgba(255,255,255,.2);
+color:white;
+}
+
+input::placeholder{
+color:#e5e7eb;
+}
+
+select{
+color:white;
+}
+
+option{
+color:black;
+}
+
+/* Button */
+
+.btn{
+width:100%;
+padding:15px;
+border:none;
+border-radius:30px;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+background:white;
+color:#2563eb;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+.note{
+margin-top:15px;
+font-size:13px;
+opacity:.8;
+}
+
+@media(max-width:768px){
+
+.passport-card{
+width:90%;
+padding:30px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- Floating Icons -->
+<div class="icon">🛂</div>
+<div class="icon">✈️</div>
+<div class="icon">🧳</div>
+<div class="icon">🌍</div>
+
+<div class="passport-card">
+
+<div class="avatar">
+👤
+</div>
+
+<h1>Traveler Profile</h1>
+
+<p class="subtitle">
+Create your medical travel profile
+</p>
+
+<div class="progress">
+<div class="progress-fill"></div>
+</div>
+
+<form action="home.html">
+
+<input type="text"
+placeholder="Full Name"
+required>
+
+<input type="number"
+placeholder="Age"
+required>
+
+<select required>
+<option value="">Select Blood Group</option>
+<option>A+</option>
+<option>A-</option>
+<option>B+</option>
+<option>B-</option>
+<option>AB+</option>
+<option>AB-</option>
+<option>O+</option>
+<option>O-</option>
+</select>
+
+<input type="text"
+placeholder="Emergency Contact"
+required>
+
+<button class="btn" type="submit">
+Continue Journey →
+</button>
+
+</form>
+<input type="text" placeholder="Blood Group">
+
+<input type="text" placeholder="Allergies">
+
+<input type="text" placeholder="Medical Conditions">
+
+<input type="text" placeholder="Current Medications">
+
+<input type="text" placeholder="Emergency Contact">
+<p class="note">
+Your information helps us provide faster healthcare assistance while traveling.
+</p>
+
+</div>
+
+</body>
+</html>

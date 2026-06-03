@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Emergency Tracking | Tourist Medicare Assist</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+min-height:100vh;
+background:linear-gradient(135deg,#0f172a,#1e293b,#334155);
+color:white;
+overflow:hidden;
+}
+
+/* Header */
+
+.header{
+text-align:center;
+padding:30px;
+}
+
+.header h1{
+font-size:2.8rem;
+margin-bottom:10px;
+}
+
+.header p{
+opacity:.8;
+}
+
+/* Ambulance Road */
+
+.road-container{
+position:relative;
+width:100%;
+height:180px;
+margin-top:20px;
+overflow:hidden;
+}
+
+.road{
+position:absolute;
+bottom:50px;
+width:100%;
+height:8px;
+background:white;
+opacity:.3;
+}
+
+.ambulance{
+position:absolute;
+font-size:70px;
+bottom:20px;
+left:-100px;
+animation:drive 12s linear infinite;
+}
+
+@keyframes drive{
+0%{
+left:-100px;
+}
+100%{
+left:110%;
+}
+}
+
+/* Progress Tracker */
+
+.tracker{
+width:90%;
+max-width:1000px;
+margin:30px auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:relative;
+}
+
+.line{
+position:absolute;
+top:25px;
+left:10%;
+width:80%;
+height:5px;
+background:#22c55e;
+z-index:0;
+}
+
+.step{
+position:relative;
+z-index:2;
+text-align:center;
+}
+
+.circle{
+width:50px;
+height:50px;
+border-radius:50%;
+background:#22c55e;
+display:flex;
+justify-content:center;
+align-items:center;
+margin:auto;
+font-size:1.2rem;
+}
+
+.step p{
+margin-top:10px;
+font-size:.85rem;
+}
+
+/* Main Content */
+
+.grid{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:25px;
+padding:30px;
+max-width:1200px;
+margin:auto;
+}
+
+.card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+padding:25px;
+border-radius:25px;
+}
+
+.card h2{
+margin-bottom:15px;
+}
+
+/* ETA */
+
+.eta{
+text-align:center;
+font-size:3rem;
+font-weight:bold;
+color:#22c55e;
+margin-top:20px;
+}
+
+.label{
+text-align:center;
+opacity:.7;
+}
+
+/* Assigned Hospital */
+
+.hospital{
+margin-top:15px;
+padding:15px;
+background:rgba(255,255,255,.05);
+border-radius:15px;
+}
+
+/* Emergency Contacts */
+
+.contact{
+padding:15px;
+margin-top:15px;
+background:rgba(255,255,255,.05);
+border-radius:15px;
+}
+
+/* Pulse Dot */
+
+.live{
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:15px;
+}
+
+.dot{
+width:12px;
+height:12px;
+border-radius:50%;
+background:#22c55e;
+animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+50%{
+transform:scale(1.5);
+}
+}
+
+/* Footer */
+
+.footer{
+text-align:center;
+padding:20px;
+opacity:.6;
+}
+
+@media(max-width:900px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.tracker{
+flex-direction:column;
+gap:20px;
+}
+
+.line{
+display:none;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+
+<h1>🚑 Emergency Assistance Activated</h1>
+
+<p>
+Stay calm. Help is on the way.
+Our emergency network has been notified.
+</p>
+
+</div>
+
+<!-- Ambulance Animation -->
+
+<div class="road-container">
+
+<div class="road"></div>
+
+<div class="ambulance">
+🚑
+</div>
+
+</div>
+
+<!-- Tracker -->
+
+<div class="tracker">
+
+<div class="line"></div>
+
+<div class="step">
+<div class="circle">✓</div>
+<p>SOS Sent</p>
+</div>
+
+<div class="step">
+<div class="circle">✓</div>
+<p>Hospital Notified</p>
+</div>
+
+<div class="step">
+<div class="circle">✓</div>
+<p>Ambulance Assigned</p>
+</div>
+
+<div class="step">
+<div class="circle">🚑</div>
+<p>En Route</p>
+</div>
+
+</div>
+
+<!-- Main Content -->
+
+<div class="grid">
+
+<div class="card">
+
+<h2>Emergency Status</h2>
+
+<div class="live">
+<div class="dot"></div>
+<span>Live Tracking Active</span>
+</div>
+
+<div class="eta" id="countdown">
+05:00
+</div>
+
+<div class="label">
+Estimated Arrival Time
+</div>
+
+<div class="hospital">
+
+<h3>🏥 Assigned Hospital</h3>
+
+<p>
+City Medical Center
+</p>
+
+<p>
+Emergency Unit Available
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Emergency Contacts</h2>
+
+<div class="contact">
+📞 Ambulance Dispatch<br>
++91 9876543210
+</div>
+
+<div class="contact">
+🏥 Hospital Reception<br>
++91 9988776655
+</div>
+
+<div class="contact">
+👨‍👩‍👧 Emergency Contact<br>
++91 9123456789
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+Tourist Medicare Assist Emergency Response System
+</div>
+
+<script>
+
+/* Countdown Timer */
+
+let minutes = 5;
+let seconds = 0;
+
+const timer = setInterval(() => {
+
+if(minutes === 0 && seconds === 0){
+
+clearInterval(timer);
+
+document.getElementById("countdown").innerHTML = "ARRIVED";
+
+return;
+
+}
+
+if(seconds === 0){
+
+minutes--;
+seconds = 59;
+
+}else{
+
+seconds--;
+
+}
+
+let m = String(minutes).padStart(2,'0');
+let s = String(seconds).padStart(2,'0');
+
+document.getElementById("countdown").innerHTML =
+`${m}:${s}`;
+
+},1000);
+
+</script>
+<h2>📋 Medical Passport</h2>
+
+<p>Blood Group: O+</p>
+
+<p>Allergies: None</p>
+
+<p>Medical Condition: Asthma</p>
+
+<p>Emergency Contact: +91 XXXXX XXXXX</p>
+<div class="hospital">
+
+<h3>📶 Connectivity</h3>
+
+<p>Weak Signal Mode Active</p>
+
+<p>Using Last Saved Location</p>
+
+</div>
+
+</body>
+</html>

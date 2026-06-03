@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Home | Tourist Medicare Assist</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<div class="card" onclick="location.href='dashboard.html'"></div>
+<div class="card" onclick="location.href='sos.html'"></div>
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+min-height:100vh;
+background:linear-gradient(135deg,#0f766e,#14b8a6,#3b82f6);
+overflow-x:hidden;
+color:white;
+}
+
+/* Navbar */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+}
+
+.logo{
+font-size:1.8rem;
+font-weight:700;
+}
+
+.profile{
+font-size:2rem;
+cursor:pointer;
+}
+
+/* Hero */
+
+.hero{
+text-align:center;
+padding:30px;
+}
+
+.typing{
+font-size:2.3rem;
+font-weight:700;
+margin-bottom:10px;
+}
+
+.subtitle{
+opacity:.9;
+}
+
+/* Globe */
+
+.globe{
+position:absolute;
+top:100px;
+right:60px;
+font-size:90px;
+animation:rotate 12s linear infinite;
+opacity:.2;
+}
+
+@keyframes rotate{
+100%{
+transform:rotate(360deg);
+}
+}
+
+/* Dashboard Card */
+
+.info-card{
+width:90%;
+max-width:900px;
+margin:30px auto;
+padding:25px;
+border-radius:25px;
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(15px);
+text-align:center;
+}
+
+/* Main Cards */
+
+.grid{
+width:90%;
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+padding-bottom:50px;
+}
+
+.card{
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(15px);
+padding:30px;
+border-radius:25px;
+text-align:center;
+cursor:pointer;
+transition:.4s;
+animation:float 5s ease-in-out infinite;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+background:rgba(255,255,255,.22);
+}
+
+.card h2{
+font-size:3rem;
+margin-bottom:10px;
+}
+
+.card h3{
+margin-bottom:8px;
+}
+
+.card p{
+font-size:.9rem;
+opacity:.9;
+}
+
+@keyframes float{
+50%{
+transform:translateY(-8px);
+}
+}
+
+/* Weather Panel */
+
+.weather{
+margin-top:10px;
+font-size:1rem;
+}
+
+/* Footer */
+
+.footer{
+text-align:center;
+padding:20px;
+opacity:.7;
+}
+
+@media(max-width:768px){
+
+.typing{
+font-size:1.8rem;
+}
+
+.globe{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="globe">🌍</div>
+
+<div class="navbar">
+<div class="logo">🌍 Tourist Medicare Assist</div>
+<div class="profile">👤</div>
+</div>
+
+<section class="hero">
+
+<h1 class="typing" id="typing"></h1>
+
+<p class="subtitle">
+Your healthcare travel companion is ready.
+</p>
+
+</section>
+
+<div class="info-card">
+
+<h2>Welcome Back Traveler ✈️</h2>
+
+<p>
+Access hospitals, emergency services,
+pharmacies and healthcare support wherever you go.
+</p>
+
+<div class="weather">
+🌤 Current Status: All Services Available
+</div>
+
+</div>
+
+<div class="grid">
+<div class="card" onclick="location.href='hospital.php'"></div>
+<h2>🏥</h2>
+<h3>Hospital Finder</h3>
+<p>Locate nearby hospitals and clinics.</p>
+</div>
+
+<div class="card" onclick="location.href='sos.html'">
+<h2>🚑</h2>
+<h3>Emergency SOS</h3>
+<p>Immediate emergency assistance.</p>
+</div>
+
+<div class="card" onclick="location.href='translator.html'">
+<h2>🌐</h2>
+<h3>Translator</h3>
+<p>Communicate with healthcare providers.</p>
+</div>
+
+<div class="card" onclick="location.href='pharmacy.html'">
+<h2>💊</h2>
+<h3>Pharmacy</h3>
+<p>Find nearby medicines and stores.</p>
+</div>
+
+<div class="card" onclick="location.href='dashboard.html'">
+<h2>📊</h2>
+<h3>Dashboard</h3>
+<p>View your travel healthcare insights.</p>
+</div>
+
+<div class="card" onclick="location.href='profile.html'">
+<h2>👤</h2>
+<h3>Profile</h3>
+<p>Manage traveler health information.</p>
+</div>
+
+</div>
+
+<div class="footer">
+Tourist Medicare Assist © 2026
+</div>
+
+<script>
+
+/* Typing Animation */
+
+const text = "Hello Traveler 👋";
+let i = 0;
+
+function typingEffect(){
+
+if(i < text.length){
+
+document.getElementById("typing").innerHTML += text.charAt(i);
+
+i++;
+
+setTimeout(typingEffect,100);
+
+}
+
+}
+
+typingEffect();
+
+</script>
+<!-- Floating SOS Button -->
+<a href="sos.html" class="floating-sos">
+    🚨 SOS
+</a>
+🚨 Emergency SOS
+📍 Nearby Hospitals
+📋 My Records
+🩹 First Aid
+📶 Network Status
+📊 Dashboard
+<a href="sos.html" class="floating-sos">
+🚨
+</a>
+<div class="card">
+<h2>📶</h2>
+<h3>Network Status</h3>
+<p id="networkStatus">Checking...</p>
+</div>
+<div class="info-card">
+
+<h2>🏥 Nearby Hospitals</h2>
+
+<p>Apollo Hospital - 1.2 km</p>
+
+<p>City Medical Center - 2.5 km</p>
+
+<p>Emergency Unit Available</p>
+
+</div>
+<div class="info-card">
+
+<h2>🩹 First Aid Guide</h2>
+
+<p>Burns → Cool with water</p>
+
+<p>Fractures → Avoid movement</p>
+
+<p>Bleeding → Apply pressure</p>
+
+<p>Heat Stroke → Move to shade</p>
+
+</div>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Location Access | Tourist Medicare Assist</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1400&q=80');
+background-size:cover;
+background-position:center;
+position:relative;
+}
+
+/* Radar */
+
+.radar{
+position:absolute;
+width:350px;
+height:350px;
+border-radius:50%;
+border:2px solid rgba(0,255,180,.3);
+}
+
+.radar::before,
+.radar::after{
+content:"";
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+border-radius:50%;
+border:2px solid rgba(0,255,180,.3);
+animation:pulse 3s infinite;
+}
+
+.radar::before{
+width:220px;
+height:220px;
+}
+
+.radar::after{
+width:120px;
+height:120px;
+}
+
+@keyframes pulse{
+0%{
+opacity:1;
+}
+100%{
+transform:translate(-50%,-50%) scale(1.5);
+opacity:0;
+}
+}
+
+/* Location Pin */
+
+.pin{
+position:absolute;
+font-size:90px;
+color:#22c55e;
+animation:bounce 2s infinite;
+z-index:2;
+}
+
+@keyframes bounce{
+50%{
+transform:translateY(-15px);
+}
+}
+
+/* Floating Pins */
+
+.marker{
+position:absolute;
+font-size:28px;
+opacity:.5;
+animation:float 5s infinite ease-in-out;
+}
+
+.marker:nth-child(1){
+top:15%;
+left:15%;
+}
+
+.marker:nth-child(2){
+top:25%;
+right:15%;
+}
+
+.marker:nth-child(3){
+bottom:20%;
+left:20%;
+}
+
+.marker:nth-child(4){
+bottom:15%;
+right:20%;
+}
+
+@keyframes float{
+50%{
+transform:translateY(-20px);
+}
+}
+
+/* Permission Card */
+
+.card{
+position:relative;
+z-index:10;
+width:420px;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(12px);
+padding:40px;
+border-radius:30px;
+text-align:center;
+color:white;
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+animation:appear 1s ease;
+}
+
+@keyframes appear{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.card h1{
+margin-bottom:15px;
+font-size:2rem;
+}
+
+.card p{
+line-height:1.7;
+margin-bottom:30px;
+font-size:15px;
+}
+
+/* Buttons */
+
+.btn{
+display:block;
+width:100%;
+padding:15px;
+margin-bottom:12px;
+border:none;
+border-radius:30px;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+.primary{
+background:#22c55e;
+color:white;
+}
+
+.primary:hover{
+transform:translateY(-3px);
+}
+
+.secondary{
+background:rgba(255,255,255,.2);
+color:white;
+}
+
+.secondary:hover{
+background:rgba(255,255,255,.3);
+}
+
+/* Scanning Text */
+
+.scan{
+margin-top:15px;
+font-size:14px;
+opacity:.8;
+animation:blink 1.5s infinite;
+}
+
+@keyframes blink{
+50%{
+opacity:.3;
+}
+}
+
+@media(max-width:768px){
+
+.card{
+width:90%;
+}
+
+.radar{
+width:250px;
+height:250px;
+}
+
+.pin{
+font-size:70px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="marker">📍</div>
+<div class="marker">📍</div>
+<div class="marker">📍</div>
+<div class="marker">📍</div>
+
+<div class="radar"></div>
+
+<div class="pin">📍</div>
+
+<div class="card">
+
+<h1>Enable Location</h1>
+
+<p>
+Tourist Medicare Assist uses your location to find nearby hospitals,
+pharmacies, emergency services, and healthcare facilities during your journey.
+</p>
+
+<button class="btn primary" onclick="getLocation()">Get Location
+Allow Location Access
+</button>
+
+<button class="btn secondary" onclick="skipLocation()">
+Skip For Now
+</button>
+
+<div class="scan">
+📡 Scanning Nearby Healthcare Services...
+</div>
+
+</div>
+
+<script>
+
+function getLocation(){
+
+if(navigator.geolocation){
+
+navigator.geolocation.getCurrentPosition(function(position){
+
+alert(
+"Location Detected Successfully!\n\nLatitude: "
++ position.coords.latitude +
+"\nLongitude: "
++ position.coords.longitude
+);
+
+window.location.href="profilesetup.html";
+
+});
+
+}else{
+
+alert("Geolocation is not supported by this browser.");
+
+}
+
+}
+
+function skipLocation(){
+
+window.location.href="profile-setup.html";
+
+}
+
+</script>
+<p>
+Tourist Medicare Assist stores your last known location
+and healthcare information so emergency assistance can
+still be provided in low-network areas.
+</p>
+<button onclick="getLocation()">
+    Enable Location
+</button>
+
+<p id="location"></p>
+<p id="locationName"></p>
+<script src="script.js"></script>
+
+</body>
+</html>
