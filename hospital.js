@@ -11,7 +11,7 @@ function loadHospitals() {
 
   const request = {
     location: location,
-    radius: 5000,
+    radius: 20000,
     type: ['hospital']
   };
 
